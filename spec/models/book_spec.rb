@@ -14,4 +14,14 @@ RSpec.describe Book, type: :model do
       expect(invalid_isbn.valid?).to be_falsy
     end
   end
+
+  describe "Associations" do
+    it { should belong_to(:author) }
+    
+    let(:author) { FactoryBot.create(:author, name: "Author 1") }
+    let(:book) { FactoryBot.create(:book, author: author, isbn: 1298) }
+    it "should return author name" do
+      expect(book.author_name).to eq("Author 1")
+    end
+  end
 end

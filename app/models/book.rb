@@ -3,4 +3,6 @@ class Book < ApplicationRecord
 
   validates_presence_of :title, :isbn, :description
   validates_uniqueness_of :isbn
+
+  delegate :name, to: :author, prefix: true
 end
