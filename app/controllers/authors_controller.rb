@@ -1,7 +1,7 @@
 class AuthorsController < ApplicationController
     before_action :get_author, except: [:index, :new, :create]
     def index
-      @authors = author.all.page(params[:page]).per(10)
+      @authors = Author.all.page(params[:page]).per(10)
     end
   
     def show; end;
