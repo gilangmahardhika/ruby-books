@@ -13,14 +13,16 @@ div.row
         th Title
         th Total Books
         - if user_signed_in?
-          th Actions
+          th[colspan="2"] Actions
     tbody
       - @authors.each do |author|
         tr
           td
-            = author.name
+            = link_to author.name, author_path(author)
           td
             = author.books_count
           - if user_signed_in?
             td
               = link_to 'Edit', edit_author_path(author)
+            td
+              = link_to 'Delete', edit_author_path(author), data: {"trubo-method": :delete, "turbo-confirm": "Are you sure?"}
