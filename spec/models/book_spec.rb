@@ -19,7 +19,6 @@ RSpec.describe Book, type: :model do
 
   describe "Associations" do
     it { should belong_to(:author) }
-    
     let(:author) { FactoryBot.create(:author, name: "Author 1") }
     let(:book) { FactoryBot.create(:book, author: author, isbn: 1298) }
     it "should return author name" do

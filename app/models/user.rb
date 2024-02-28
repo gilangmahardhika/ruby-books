@@ -4,7 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   validates :username, presence: true
-  validates :email, presence: true, email: true
+  validates :email, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP } 
 
   ## Devise override login with email or username
   def self.find_for_database_authentication(conditions={})
