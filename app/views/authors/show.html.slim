@@ -1,0 +1,36 @@
+div.row
+  div.col-md-10
+    h4 
+      small = @author.name
+  - if user_signed_in?
+    div.col-md-1
+      div.text-right
+        = link_to 'Edit', edit_author_path(@author), class: 'btn btn-primary', method: :get
+    div.col-md-1
+      div.text-right
+        = link_to 'Delete', author_path(@author), class: 'btn btn-danger', data: {"turbo-method": :delete, "turbo-confirm": "Are you sure?"}
+br
+div.row
+  table.table.table-stripped.table-hover
+    thead
+      tr
+        th Title
+        th Year
+        th Isbn
+        th Author
+        - if user_signed_in?
+          th[colspan=2] Actions
+    tbody
+      - @books.each do |book|
+        tr
+          td
+            = link_to book.title, book_path(book)
+          td
+            = book.year
+          td
+            = book.isbn
+          - if user_signed_in?
+            td
+              = link_to 'Edit', edit_book_path(book)
+            td
+              = link_to 'Delete', book_path(book), data: {"turbo-method": :delete, "turbo-confirm": "Are you sure?"}

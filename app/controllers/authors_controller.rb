@@ -1,12 +1,15 @@
 class AuthorsController < ApplicationController
-    before_action :get_author, except: [:index, :new, :create]
+    before_action :get_author, except: [:index, :new, :create, :show]
     before_action :authenticate_user!, except: [:index, :show]
 
     def index
       @authors = Author.all.page(params[:page]).per(10)
     end
   
-    def show; end;
+    def show
+      @author = Author.with_books.find(params[:id])
+      @books = @author.books
+    end
   
     def new
       @author = Author.new

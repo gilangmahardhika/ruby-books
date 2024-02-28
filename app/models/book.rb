@@ -7,6 +7,8 @@ class Book < ApplicationRecord
 
   delegate :name, to: :author, prefix: true
 
+  default_scope { includes(:author) }
+
   after_create :send_email
 
   private

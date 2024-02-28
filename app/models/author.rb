@@ -3,6 +3,8 @@ class Author < ApplicationRecord
 
   validates_presence_of :name
 
+  scope :with_books, -> { includes(:books) }
+
   def self.map_authors
     all.map{|a| [a.name, a.id]}
   end
