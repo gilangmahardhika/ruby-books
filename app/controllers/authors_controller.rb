@@ -1,5 +1,7 @@
 class AuthorsController < ApplicationController
     before_action :get_author, except: [:index, :new, :create]
+    before_action :authenticate_user!, except: [:index, :show]
+
     def index
       @authors = Author.all.page(params[:page]).per(10)
     end
@@ -48,7 +50,7 @@ class AuthorsController < ApplicationController
       end
   
       def author_params
-        params.require(:author).permit(:title, :isbn, :description, :author_id)
+        params.require(:author).permit(:name)
       end
   end
   

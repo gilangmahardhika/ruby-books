@@ -8,6 +8,7 @@ html
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload" 
+    = javascript_importmap_tags
   body
     .container-fluid
       nav.navbar.navbar-expand-lg.bg-light
@@ -24,11 +25,10 @@ html
               li.nav-item
                 = link_to 'Authors', authors_path, class: 'nav-link'
           form
-            a.btn.btn-outline-primary.mr-2[href="#"]
-              | Login
-            | &nbsp;
-            a.btn.btn-outline-success[href="#"]
-              | Become member
+            - unless user_signed_in?
+              = link_to "Login", new_user_session_path, class: 'btn btn-outline-primary mr-2'
+            - else
+              = link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete, turbo_confirm: 'Are you sure?'}, class: 'btn btn-outline-primary mr-2'
     div.row style="margin-bottom: 10px"
     .container-fluid
       .container
