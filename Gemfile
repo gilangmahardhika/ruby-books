@@ -52,6 +52,7 @@ group :development, :test do
   gem 'faker', '3.2.3'
   gem 'factory_bot_rails', '6.4.3'
   gem 'database_cleaner-active_record', '2.1.0'
+  gem 'letter_opener', '1.9.0'
 end
 
 group :development do
@@ -69,6 +70,6 @@ gem 'devise', '4.9.3'
 gem 'kaminari', '1.2.2'
 gem 'sidekiq', '7.2.2'
 gem 'email_validator', '2.2.4'
-gem 'slim-rails'
-gem 'bootstrap'
-gem 'sassc-rails'
+gem 'slim-rails', '3.6.3'
+gem 'bootstrap', '5.3.2'
+gem 'sassc-rails', '2.1.2'

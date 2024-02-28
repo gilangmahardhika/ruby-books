@@ -1,0 +1,6 @@
+h4
+  = "Hi #{@user.username}"
+
+p
+  | We just added a new book, please 
+  = link_to "check this out!", book_url(@book)

@@ -6,4 +6,12 @@ class Book < ApplicationRecord
   validates_numericality_of :year
 
   delegate :name, to: :author, prefix: true
+
+  after_create :send_email
+
+  private
+    def send_email
+      # BooksMailer.new_book(self).deliver
+      MailerJob.perform_later(self)
+    end
 end
