@@ -13,8 +13,10 @@ class AuthorsController < ApplicationController
     def create
       @author = Author.new(author_params)
       if @author.save
-        redirect_to author_path(@author)
+        flash[:success] = "Author successfuly created"
+        redirect_to author_path(@author), format: :html
       else
+        flash[:error] = @author.errors.full_messages
         render :new
       end
     end
@@ -23,19 +25,21 @@ class AuthorsController < ApplicationController
   
     def update
       if @author.update(author_params)
+        flash[:success] = "Author succesffuly updated"
         redirect_to author_path(@author)
       else
+        flash[:error] = @author.errors.full_messages
         render :edit
       end
     end
   
     def destroy
       if @author.destroy
-  
+        flash[:success] = "Author successfully deleted"
       else
-  
+        flash[:error] = "Failed to delete author"
       end
-      redirect_to authors_path
+      redirect_to authors_path, format: :html
     end
   
     private

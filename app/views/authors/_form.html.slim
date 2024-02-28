@@ -1,0 +1,9 @@
+= form_for @author, html: { class: 'form-horizontal' } do |f|
+  .mb-3.row
+    = f.label :name, class: 'col-md-2 label-control'
+    .col-md-10
+      = f.text_field :name, class: 'form-control'
+  .mb-3.row
+    .col-sm-offset-2.col-sm-10
+      = f.button :submit, class: 'btn btn-primary'
+  

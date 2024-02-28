@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :author
+  belongs_to :author, counter_cache: true
 
   validates_presence_of :title, :isbn, :description, :year
   validates_uniqueness_of :isbn

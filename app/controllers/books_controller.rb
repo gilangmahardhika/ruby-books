@@ -40,7 +40,7 @@ class BooksController < ApplicationController
     else
       flash[:error] = "Failed to delete book"
     end
-    redirect_to books_path
+    redirect_to books_path, format: :html
   end
 
   private
@@ -53,6 +53,6 @@ class BooksController < ApplicationController
     end
 
     def book_params
-      params.require(:book).permit(:title, :isbn, :description, :author_id)
+      params.require(:book).permit(:title, :isbn, :description, :year, :author_id)
     end
 end

@@ -8,13 +8,17 @@
     .col-md-10
       = f.text_field :isbn, class: 'form-control'
   .mb-3.row
+    = f.label :year, class: 'col-md-2 label-control'
+    .col-md-10
+      = f.text_field :year, class: 'form-control'
+  .mb-3.row
     = f.label :description, class: 'col-md-2 label-control form-label'
     .col-md-10
       = f.text_area :description, class: 'form-control'
   .mb-3.row
     = f.label :author_id, class: 'col-md-2 label-control form-label'
     .col-md-10
-      = f.select :author_id, options_for_select(@authors), {include_blank: true, prompt: '-- Select author --'}, {class: 'form-select'}
+      = f.select :author_id, options_for_select(@authors, selected: @book.author_id), {include_blank: true, prompt: '-- Select author --'}, {class: 'form-select'}
   .mb-3
     .col-sm-offset-2.col-sm-10
       = f.button :submit, class: 'btn btn-primary'
