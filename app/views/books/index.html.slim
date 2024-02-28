@@ -32,3 +32,6 @@ div.row
               = link_to 'Edit', edit_book_path(book)
             td
               = link_to 'Delete', book_path(book), data: {"turbo-method": :delete, "turbo-confirm": "Are you sure?"}
+
+div.row
+  = paginate @books
