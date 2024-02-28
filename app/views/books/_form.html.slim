@@ -2,19 +2,19 @@
   .mb-3.row
     = f.label :title, class: 'col-md-2 label-control'
     .col-md-10
-      = f.text_field :title, class: 'form-control'
+      = f.text_field :title, class: 'form-control', required: true
   .mb-3.row
     = f.label :isbn, class: 'col-md-2 label-control'
     .col-md-10
-      = f.text_field :isbn, class: 'form-control'
+      = f.text_field :isbn, class: 'form-control', required: true
   .mb-3.row
     = f.label :year, class: 'col-md-2 label-control'
     .col-md-10
-      = f.text_field :year, class: 'form-control'
+      = f.text_field :year, class: 'form-control', required: true
   .mb-3.row
     = f.label :description, class: 'col-md-2 label-control form-label'
     .col-md-10
-      = f.text_area :description, class: 'form-control'
+      = f.text_area :description, class: 'form-control', required: true
   .mb-3.row
     = f.label :author_id, class: 'col-md-2 label-control form-label'
     .col-md-10
