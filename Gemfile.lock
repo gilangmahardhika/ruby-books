@@ -334,7 +334,7 @@ DEPENDENCIES
   factory_bot_rails (= 6.4.3)
   faker (= 3.2.3)
   importmap-rails
-  jbuilder
+  jbuilder (= 2.11.5)
   kaminari (= 1.2.2)
   letter_opener (= 1.9.0)
   pg (~> 1.1)

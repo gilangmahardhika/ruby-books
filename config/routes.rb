@@ -7,10 +7,16 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
   mount Sidekiq::Web => "/sidekiq"
-  
+
   # Defines the root path route ("/")
   root "books#index"
 
   resources :books
   resources :authors
+
+  namespace :api do
+    namespace :v1 do
+      resources :books, only: [:index, :show], defaults: { format: :json }
+    end
+  end
 end
