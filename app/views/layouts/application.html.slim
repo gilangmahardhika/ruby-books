@@ -4,11 +4,12 @@ html
     title
       | Books
     meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta[name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"]
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag "application", "data-turbo-track": "reload" 
   body
-    .container-flouid
+    .container-fluid
       nav.navbar.navbar-expand-lg.bg-light
         .container
 
@@ -28,8 +29,10 @@ html
             | &nbsp;
             a.btn.btn-outline-success[href="#"]
               | Become member
-    .container-flouid
+    div.row style="margin-bottom: 10px"
+    .container-fluid
       .container
         .row
           .col-md-12
+            = render 'shared/flash'
             = yield 

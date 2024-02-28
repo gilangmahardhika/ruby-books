@@ -4,5 +4,6 @@ FactoryBot.define do
     isbn { "" }
     description { "MyText" }
     author { nil }
+    year { 1990 }
   end
 end

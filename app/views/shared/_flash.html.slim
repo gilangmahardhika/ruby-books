@@ -1,0 +1,10 @@
+- if flash[:error].present?
+  div[class="alert alert-danger" role="alert"]
+    - if flash[:error].is_a?(Array)
+      = flash[:error].join(", ")
+    - else
+      = flash[:error]
+
+- if flash[:success].present?
+  div[class="alert alert-success" role="alert"]
+    = flash[:success]

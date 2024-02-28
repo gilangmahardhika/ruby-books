@@ -5,6 +5,8 @@ RSpec.describe Book, type: :model do
     it { should validate_presence_of(:title) }
     it { should validate_presence_of(:isbn) }
     it { should validate_presence_of(:description) }
+    it { should validate_presence_of(:year) }
+    it { should validate_numericality_of(:year) }
 
     let(:author) { FactoryBot.create(:author) }
     let(:book) { FactoryBot.create(:book, author: author, isbn: 1234) }
